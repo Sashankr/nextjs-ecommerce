@@ -34,7 +34,7 @@ export function ProductCard({ product }: { product: Product }) {
 
         <div className="mt-4 flex items-center justify-between">
           <span className="text-xl font-bold text-gray-900">
-            ${formatPrice(product.price)}
+            {formatPrice(product.price)}
           </span>
 
           <button className="rounded-lg bg-black px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-800">
