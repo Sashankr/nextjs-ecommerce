@@ -1,16 +1,19 @@
-/* eslint-disable @next/next/no-img-element */
 import type { Product } from "@/lib/mock";
+import Image from "next/image";
 
 export function ProductCard({ product }: { product: Product }) {
   return (
     <div className="group rounded-2xl border border-gray-200 bg-white shadow-sm transition hover:shadow-lg">
       {/* Image */}
       <div className="relative overflow-hidden rounded-t-2xl bg-gray-100">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="h-56 w-full object-cover transition-transform duration-300 group-hover:scale-105"
-        />
+        <div className="h-[250px]">
+          <Image
+            src={product.image}
+            alt={product.name}
+            className="object-cover"
+            fill
+          />
+        </div>
         <span className="absolute left-3 top-3 rounded-full bg-black/80 px-3 py-1 text-xs font-medium text-white">
           {product.category}
         </span>
