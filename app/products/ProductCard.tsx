@@ -6,12 +6,13 @@ export function ProductCard({ product }: { product: Product }) {
     <div className="group rounded-2xl border border-gray-200 bg-white shadow-sm transition hover:shadow-lg">
       {/* Image */}
       <div className="relative overflow-hidden rounded-t-2xl bg-gray-100">
-        <div className="h-[250px]">
+        <div className="relative aspect-video">
           <Image
             src={product.image}
             alt={product.name}
             className="object-cover"
             fill
+            loading="lazy"
           />
         </div>
         <span className="absolute left-3 top-3 rounded-full bg-black/80 px-3 py-1 text-xs font-medium text-white">
