@@ -1,4 +1,5 @@
 import type { Product } from "@/lib/mock";
+import { formatPrice } from "@/lib/utils";
 import Image from "next/image";
 
 export function ProductCard({ product }: { product: Product }) {
@@ -13,6 +14,7 @@ export function ProductCard({ product }: { product: Product }) {
             className="object-cover"
             fill
             loading="lazy"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
         <span className="absolute left-3 top-3 rounded-full bg-black/80 px-3 py-1 text-xs font-medium text-white">
@@ -32,7 +34,7 @@ export function ProductCard({ product }: { product: Product }) {
 
         <div className="mt-4 flex items-center justify-between">
           <span className="text-xl font-bold text-gray-900">
-            ₹{product.price.toLocaleString()}
+            ${formatPrice(product.price)}
           </span>
 
           <button className="rounded-lg bg-black px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-800">
