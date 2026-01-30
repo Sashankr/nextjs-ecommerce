@@ -17,6 +17,9 @@ datasource db {
 model Product{
   id String @id @default(cuid())
   name String
+  price Float
+  image String?
+  slug String @unique
   description String?
   category Category @relation(fields: [categoryId], references: [id])
   categoryId String
