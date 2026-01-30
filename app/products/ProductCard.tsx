@@ -1,6 +1,6 @@
-import type { Product } from "@/lib/mock";
 import { formatPrice } from "@/lib/utils";
 import Image from "next/image";
+import type { Product } from "../generated/prisma/client";
 
 export function ProductCard({ product }: { product: Product }) {
   return (
@@ -8,14 +8,16 @@ export function ProductCard({ product }: { product: Product }) {
       {/* Image */}
       <div className="relative overflow-hidden rounded-t-2xl bg-gray-100">
         <div className="relative aspect-video">
-          <Image
-            src={product.image}
-            alt={product.name}
-            className="object-cover"
-            fill
-            loading="lazy"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
+          {product.image && (
+            <Image
+              src={product.image}
+              alt={product.name}
+              className="object-cover"
+              fill
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          )}
         </div>
         <span className="absolute left-3 top-3 rounded-full bg-black/80 px-3 py-1 text-xs font-medium text-white">
           {product.category}
