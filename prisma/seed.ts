@@ -34,7 +34,7 @@ export async function main() {
     },
   });
 
-  const mockProducts: Product[] = [
+  const products: Product[] = [
     {
       id: "1",
       name: "Wireless Headphones",
@@ -83,6 +83,11 @@ export async function main() {
       slug: "leather-backpack",
     },
   ];
+  for (const product of products) {
+    await prisma.product.create({
+      data: product,
+    });
+  }
 }
 
 main()
